@@ -1,10 +1,11 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Layers, Code, Mail } from 'lucide-react';
+import { Home, Layers, Code, Trophy, Mail } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 
 const navItems = [
   { name: 'Home', icon: Home, href: '#hero' },
   { name: 'Tech Stack', icon: Layers, href: '#techstack' },
+  { name: 'Achievements', icon: Trophy, href: '#achievements' },
   { name: 'Projects', icon: Code, href: '#projects' },
   { name: 'Contact', icon: Mail, href: '#contact' },
 ];
@@ -22,14 +23,20 @@ export default function FloatingNavbar() {
 
       if (!isScrollingRef.current) {
         const sections = navItems.map(item => item.href.substring(1));
-        const currentSection = sections.find(section => {
+        // Find the section that is currently most visible (closest to top of viewport)
+        let currentSection: string | null = null;
+        
+        for (const section of sections) {
           const element = document.getElementById(section);
           if (element) {
             const rect = element.getBoundingClientRect();
-            return rect.top <= 100 && rect.bottom >= 100;
+            // Section is considered active if its top is at or above 150px from viewport top
+            // and its bottom is still visible
+            if (rect.top <= 150 && rect.bottom >= 150) {
+              currentSection = section;
+            }
           }
-          return false;
-        });
+        }
 
         if (currentSection) {
           const activeItem = navItems.find(item => item.href === `#${currentSection}`);

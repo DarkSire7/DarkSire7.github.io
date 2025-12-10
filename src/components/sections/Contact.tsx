@@ -11,7 +11,7 @@ interface FormErrors {
   message?: string;
 }
 
-const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+const WEB3FORMS_ACCESS_KEY = '6f210354-c080-4c0e-84da-4e88143eece2';
 
 const ContactComponent = () => {
   const [formData, setFormData] = useState({

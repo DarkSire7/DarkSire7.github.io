@@ -9,6 +9,7 @@ import LoadingScreen from './components/layout/LoadingScreen';
 
 const TechStack = lazy(() => import('./components/sections/TechStack').then(m => ({ default: m.TechStack })));
 const Projects = lazy(() => import('./components/sections/Projects').then(m => ({ default: m.Projects })));
+const Achievements = lazy(() => import('./components/sections/Achievements').then(m => ({ default: m.Achievements })));
 const Contact = lazy(() => import('./components/sections/Contact').then(m => ({ default: m.Contact })));
 
 
@@ -60,6 +61,10 @@ function App() {
         <Suspense fallback={<SectionLoader />}>
           <TechStack />
         </Suspense>
+
+        <Suspense fallback={<SectionLoader />}>
+          <Achievements />
+        </Suspense>
         
         <Suspense fallback={<SectionLoader />}>
           <Projects />
@@ -95,7 +100,7 @@ function App() {
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
               <p className="text-gray-500 text-xs sm:text-sm text-center md:text-left flex items-center gap-1.5">
-                © 2024 Akif. Built with <Heart size={14} className="text-pink-500 fill-pink-500 animate-pulse" /> & passion.
+                © 2025 Akif. Built with <Heart size={14} className="text-pink-500 fill-pink-500 animate-pulse" /> & passion.
               </p>
               
               <div className="flex items-center gap-3 sm:gap-4">
