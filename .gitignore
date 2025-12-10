@@ -22,4 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-Screenshot_2024-06-13-22-42-57-41_92460851df6f172a4592fca41cc2d2e6.jpg
+
+# Environment variables
+.env
+.env.local
+.env.*.local
